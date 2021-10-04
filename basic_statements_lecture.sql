@@ -178,3 +178,14 @@ WHERE id = 4\G
 DELETE FROM books
 WHERE id = 4\G
 
+
+
+-- ===== Truncate
+
+--  Sometimes you do not want to just remove a handful of records, but all the records from a table. For that, SQL also has a TRUNCATE command:
+
+
+TRUNCATE books;
+-- TRUNCATE has no WHERE clause, there is no way to limit what rows of the table will be removed; it deletes EVERYTHING.
+ -- If you thought DELETE was scary, TRUNCATE is downright terrifying.
+
