@@ -3,7 +3,7 @@ USE employees;
 #Update your queries for employees whose names start and end with 'E'.
 # and use concat() to combine their first and last name together as a single column
 # in your results.
-UPDATE  CONCAT(first_name, ' ', last_name) AS 'Employee Concat'
+SELECT CONCAT(first_name, ' ', last_name) AS 'Employee Concat'
 FROM employees;
 
 
