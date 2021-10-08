@@ -63,10 +63,10 @@ USE codeup_test_db;
 
 SELECT * FROM albums;
 
-alter table albums ADD UNIQUE unique_artist_and_name(artist, name);
+ALTER TABLE albums ADD UNIQUE unique_artist_and_name(artist, name);
 
-#INSERT INTO albums (artist, name, release_date, genre, sales)
-#VALUES ('Michael Jackson', 'Thriller', 1982,'Pop, post-disco, funk, rock', 48.9);
+INSERT INTO albums (artist, name, release_date, genre, sales)
+VALUES ('Michael Jackson', 'Thriller', 1982,'Pop, post-disco, funk, rock', 48.9);
 
 CREATE TABLE persons (
                          id INT UNSIGNED NOT NULL AUTO_INCREMENT,
