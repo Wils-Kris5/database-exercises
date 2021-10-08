@@ -175,8 +175,8 @@ WHERE id > 2;
 
 # Leaving off Where Clause (DANGEROUS!!!)
 
-UPDATE books
-SET author = 'George';
+# UPDATE books
+# SET author = 'George';
 
 SELECT * FROM books;
 

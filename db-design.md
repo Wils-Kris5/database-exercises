@@ -7,24 +7,47 @@ The process of "normalizing" a relational database design. Different levels of n
 #### Entity Relationship Diagram (ERD) 
 
 A way to visually describe the schema of a database and the relationships between tables.
+   
 
-#### One-to-One Relationship
+#### Relationship types:
+### One-to-One Relationship
+
 - ***Definition:*** a relationship where one record on a table matches with one record on another table.
 - ***Example:*** users and user_details
 - ***Common strategy to implement:*** the owner table of the relationship should have a foreign key to the non-owner.
+- ***reducing:*** complexity by breaking up information into another table, like the context of one table could be put in another table, and liked withh a foreign key
+ ````
+ owners : pets
+ Each pet has one owner, but each owner can have one or more pets.
+ ````
 
-#### One-to-Many Relationship
+### One-to-Many Relationship
 
 - ***Definition:*** a relationship where one record on a table matches with several records on another table.
 - ***Example:*** users and posts
 - ***Common strategy to implement:*** the table on the many side should have a foreign key pointing to the single owner from the owning-side table.
+- ***Example:*** CAR makes and models :
+there are MANY models to ONE car maker
 
+```
+    Toyota : 
+
+      Corolla
+      Camry
+      Tacoma 
+ 
+ ```
 #### Many-to-Many Relationship
 
 - ***Definition:*** a relationship where one record on a table matches with several records on another table and a record on the other table matches with several records on the first table.
 - ***Example:*** users and events
 - ***Common strategy to implement:*** neither table should have a foreign key to the other and instead, an associative (join) table should be used to link the two together via two foreign key columns, each linking to a primary key of both tables in the many-to-many relationship.
 
+ ```
+ professors : students
+     Ex : students have many professors and proffessors teach more that one class
+   
+   ```
 <div style="page-break-after: always;"></div>
 
 ## DB Design Conventions to Follow
@@ -78,7 +101,7 @@ A way to visually describe the schema of a database and the relationships betwee
 4. When duplicate values exist accross multiple rows, consider breaking out the column(s) into another table.
 
   ```
-  users
+  users  (ONE SIDE)
       id
       username
       email
@@ -108,3 +131,28 @@ A way to visually describe the schema of a database and the relationships betwee
 - [sqldbm](https://sqldbm.com)
 - Don't forget about good 'ol pencil and paper or a whiteboard!
 	
+#### keep in mind
+the scope of your app deictates what to inclue in DB.
+
+In general, avoid duplicate data wherever possible
+
+each table should represent one thing
+
+
+### HOW TO RELATE TABLES
+ONE : ONE
+- add primary keys in both tables(id)
+in the second table add a foreign key to point to the primary key from the first table and as constraints add it as unique.
+
+ONE : MANY
+- The field on the one side (typically the primary key) of the relationship must have a unique index.
+-  The field on the many side should not have a unique index.
+ 
+
+MANY : MANY
+- between two or more tables, the simplest way to relate them is to use a Junction Table 
+- A Junction table in a database, also referred to as a Bridge table or Associative Table, bridges the tables together by referencing the primary keys of each data table.
+
+
+
+
